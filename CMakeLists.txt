@@ -6,10 +6,16 @@ enable_testing()
 set(CMAKE_CXX_STANDARD 14)
 include_directories(include)
 
-# Libraries
-set(MEMORY_LIBNAME memory)
+# ===> Libraries <===
+## ==> MEMORY <===
+set(MEMORY_LIBNAME shezuka-mem)
 add_library(${MEMORY_LIBNAME} SHARED
         include/shezuka/memory/ArrayMemory.h src/shezuka/memory/ArrayMemory.cpp)
+
+## ==> NETWORK <==
+set(NETWORK_LIBNAME shezuka-net)
+add_library(${NETWORK_LIBNAME} SHARED
+        include/shezuka/network/Socket.h src/shezuka/network/Socket.cpp include/shezuka/network/SocketListener.h src/shezuka/network/SocketListener.cpp include/shezuka/network/SocketClient.h src/shezuka/network/SocketClient.cpp)
 
 # Auto tests on build
 function(DO_TEST TEST_NAME TEST_CPP TARGET_LIBNAME)
