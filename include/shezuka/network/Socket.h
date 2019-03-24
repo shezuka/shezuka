@@ -17,6 +17,8 @@ namespace shezuka {
 
             virtual bool is_open() const noexcept;
 
+            virtual void open() = 0;
+
             void close();
 
             virtual ushort port() const;

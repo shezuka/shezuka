@@ -8,6 +8,10 @@ namespace shezuka {
         class SocketListener: public Socket {
         public:
             ~SocketListener() override = 0;
+
+            virtual void listen();
+
+            virtual void listen(ushort port);
         };
     }
 }
