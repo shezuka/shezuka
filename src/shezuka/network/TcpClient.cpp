@@ -51,5 +51,17 @@ namespace shezuka {
                 normilize_port_by_address();
             }
         }
+
+        ssize_t TcpClient::read(char *buff, size_t buff_size) {
+            auto res = ::recv(_descriptor, buff, buff_size, 0);
+            if (res <= 0) close();
+            return res;
+        }
+
+        ssize_t TcpClient::send(const char *data, size_t data_size) {
+            auto res = ::send(_descriptor, data, data_size, 0);
+            if (res <= 0) close();
+            return res;
+        }
     }
 }

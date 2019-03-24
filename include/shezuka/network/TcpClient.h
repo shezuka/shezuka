@@ -18,6 +18,10 @@ namespace shezuka {
             void open() override;
 
             void accept(const SocketListener *listener) override;
+
+            ssize_t read(char *buff, size_t buff_size) override;
+
+            ssize_t send(const char *data, size_t data_size) override;
         };
     }
 }

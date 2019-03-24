@@ -29,6 +29,10 @@ namespace shezuka {
             virtual void connect(const std::string &hostname, ushort port);
 
             virtual void accept(const SocketListener *listener) = 0;
+
+            virtual ssize_t read(char *buff, size_t buff_size) = 0;
+
+            virtual ssize_t send(const char *data, size_t data_size) = 0;
         };
     }
 }

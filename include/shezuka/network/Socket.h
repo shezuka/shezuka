@@ -29,6 +29,8 @@ namespace shezuka {
 
             virtual void set_port(ushort port);
 
+            virtual void print_last_error() const noexcept;
+
             virtual void throw_last_error() const;
         };
     }

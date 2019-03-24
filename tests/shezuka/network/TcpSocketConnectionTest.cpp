@@ -17,11 +17,18 @@ void server_thread_handler() {
     TcpClient accepted;
     accepted.accept(&listener);
     if (!accepted.is_open()) accepted.throw_last_error();
+
+    accepted.close();
+    listener.close();
 }
 
 void client_thread_handler() {
+    this_thread::sleep_for(200ms);
+
     TcpClient client;
     client.connect("127.0.0.1", PORT);
+    if (!client.is_open()) client.throw_last_error();
+    client.close();
 }
 
 int main() {

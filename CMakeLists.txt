@@ -34,5 +34,5 @@ endfunction()
 # ===> TESTS <===
 ## ==> Memory tests <==
 DO_TEST(ArrayMemory_Sizing shezuka/memory/ExtendMemoryTest.cpp ${MEMORY_LIBNAME})
-DO_TEST(Network_TcpListener shezuka/network/TcpListenerTest.cpp ${NETWORK_LIBNAME})
-DO_TEST(Network_TcpClient shezuka/network/TcpClientTest.cpp ${NETWORK_LIBNAME})
+DO_TEST(Network_TcpSocketConnection shezuka/network/TcpSocketConnectionTest.cpp ${NETWORK_LIBNAME})
+DO_TEST(Network_TcpClientReadAndWrite shezuka/network/TcpClientReadAndWriteTest.cpp ${NETWORK_LIBNAME})

@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <cstring>
 #include <stdexcept>
+#include <iostream>
 
 namespace shezuka {
     namespace network {
@@ -37,6 +38,10 @@ namespace shezuka {
 
         struct sockaddr *Socket::sockaddr_ptr() const {
             return reinterpret_cast<struct sockaddr *>(_addr);
+        }
+
+        void Socket::print_last_error() const noexcept {
+            std::cerr << "socket error: " << std::string(strerror(errno)) << std::endl;
         }
 
         void Socket::throw_last_error() const {
