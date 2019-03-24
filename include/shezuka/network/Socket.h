@@ -12,6 +12,8 @@ namespace shezuka {
             ushort _port = 0;
             struct sockaddr_in *_addr = nullptr;
 
+            struct sockaddr *sockaddr_ptr() const;
+
         public:
             virtual ~Socket() = 0;
 

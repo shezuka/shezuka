@@ -32,6 +32,10 @@ namespace shezuka {
             }
         }
 
+        struct sockaddr *Socket::sockaddr_ptr() const {
+            return reinterpret_cast<struct sockaddr*>(_addr);
+        }
+
 
     }
 }
