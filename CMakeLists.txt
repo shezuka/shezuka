@@ -2,19 +2,19 @@ cmake_minimum_required(VERSION 3.13)
 project(memory)
 enable_testing()
 
+# Project configuration
 set(CMAKE_CXX_STANDARD 14)
-set(LIBRARY_NAME memory)
-
 include_directories(include)
 
-add_library(${LIBRARY_NAME} SHARED
+# Libraries
+set(MEMORY_LIBNAME memory)
+add_library(${MEMORY_LIBNAME} SHARED
         include/shezuka/memory/ArrayMemory.h src/shezuka/memory/ArrayMemory.cpp)
 
-
 # Auto tests on build
-function(DO_TEST TEST_NAME TEST_CPP)
+function(DO_TEST TEST_NAME TEST_CPP TARGET_LIBNAME)
     add_executable(${TEST_NAME} tests/${TEST_CPP})
-    target_link_libraries(${TEST_NAME} ${LIBRARY_NAME})
+    target_link_libraries(${TEST_NAME} ${TARGET_LIBNAME})
     add_test(${TEST_NAME} ${TEST_NAME})
     add_custom_command(TARGET ${TEST_NAME}
             POST_BUILD
@@ -23,4 +23,4 @@ endfunction()
 
 # ===> TESTS <===
 ## ==> Memory tests <==
-DO_TEST(ArrayMemory_Sizing shezuka/memory/ExtendMemoryTest.cpp)
+DO_TEST(ArrayMemory_Sizing shezuka/memory/ExtendMemoryTest.cpp ${MEMORY_LIBNAME})
