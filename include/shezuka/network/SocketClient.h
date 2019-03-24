@@ -3,9 +3,12 @@
 
 #include <string>
 #include "Socket.h"
+#include "SocketListener.h"
 
 namespace shezuka {
     namespace network {
+        class SocketListener;
+
         class SocketClient : public Socket {
         protected:
             std::string _hostname;
@@ -24,6 +27,8 @@ namespace shezuka {
             virtual void connect(const char *hostname, ushort port);
 
             virtual void connect(const std::string &hostname, ushort port);
+
+            virtual void accept(const SocketListener *listener) = 0;
         };
     }
 }

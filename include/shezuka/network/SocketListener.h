@@ -2,10 +2,11 @@
 #define MEMORY_SERVERSOCKET_H
 
 #include "Socket.h"
+#include "SocketClient.h"
 
 namespace shezuka {
     namespace network {
-        class SocketListener: public Socket {
+        class SocketListener : public Socket {
         public:
             ~SocketListener() override = 0;
 

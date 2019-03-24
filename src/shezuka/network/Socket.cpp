@@ -1,6 +1,9 @@
 #include <shezuka/network/Socket.h>
 
 #include <unistd.h>
+#include <errno.h>
+#include <cstring>
+#include <stdexcept>
 
 namespace shezuka {
     namespace network {
@@ -33,7 +36,15 @@ namespace shezuka {
         }
 
         struct sockaddr *Socket::sockaddr_ptr() const {
-            return reinterpret_cast<struct sockaddr*>(_addr);
+            return reinterpret_cast<struct sockaddr *>(_addr);
+        }
+
+        void Socket::throw_last_error() const {
+            throw std::runtime_error("socket error: " + std::string(strerror(errno)));
+        }
+
+        int Socket::descriptor() const {
+            return _descriptor;
         }
 
 

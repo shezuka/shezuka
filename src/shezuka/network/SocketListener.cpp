@@ -5,7 +5,7 @@ namespace shezuka {
         SocketListener::~SocketListener() = default;
 
         void SocketListener::listen() {
-            this->Socket::open();
+            this->open();
         }
 
         void SocketListener::listen(ushort port) {

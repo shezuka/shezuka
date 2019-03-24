@@ -9,7 +9,7 @@ namespace shezuka {
         }
 
         void SocketClient::connect() {
-            this->Socket::open();
+            this->open();
         }
 
         void SocketClient::set_hostname(const char *hostname) {

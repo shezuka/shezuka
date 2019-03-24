@@ -23,9 +23,13 @@ namespace shezuka {
 
             void close();
 
+            virtual int descriptor() const;
+
             virtual ushort port() const;
 
             virtual void set_port(ushort port);
+
+            virtual void throw_last_error() const;
         };
     }
 }
