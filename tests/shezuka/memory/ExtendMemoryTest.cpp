@@ -1,4 +1,4 @@
-#include <ArrayMemory.h>
+#include <shezuka/memory/ArrayMemory.h>
 #include <cstring>
 #include <cassert>
 #include <stdio.h>
