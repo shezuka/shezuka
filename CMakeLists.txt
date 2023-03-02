@@ -36,9 +36,6 @@ function(DO_TEST TEST_NAME TEST_CPP TARGET_LIBNAME)
     add_executable(${TEST_NAME} tests/${TEST_CPP})
     target_link_libraries(${TEST_NAME} pthread ${TARGET_LIBNAME})
     add_test(${TEST_NAME} ${TEST_NAME})
-    add_custom_command(TARGET ${TEST_NAME}
-            POST_BUILD
-            COMMAND ctest -C $<CONFIGURATION> --output-on-failure)
 endfunction()
 
 # ===> TESTS <===
